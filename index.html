@@ -1,0 +1,1746 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>SEVER — Web3 Community • Content • Growth</title>
+    <meta name="description" content="Official Web3 portfolio for SEVER — Web3 Community Lead, Content Strategist & Trench Growth Specialist." />
+    
+    <!-- Google Fonts: Syne & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              sever: {
+                black: '#030303',
+                dark: '#08080a',
+                card: '#0e0e12',
+                cardHover: '#14141a',
+                red: '#ff1e27',
+                redHover: '#e0121b',
+                redGlow: 'rgba(255, 30, 39, 0.4)',
+                accent: '#ff3b44'
+              }
+            },
+            fontFamily: {
+              syne: ['Syne', 'sans-serif'],
+              space: ['Space Grotesk', 'sans-serif']
+            },
+            animation: {
+              'spin-slow': 'spin 25s linear infinite',
+              'pulse-subtle': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite'
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-10px)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* BASE STYLES & ANTI-OVERFLOW RULES */
+      :root {
+        --sever-red: #ff1e27;
+        --sever-green: #10b981;
+        --sever-red-hover: #e0121b;
+        --sever-red-glow: rgba(255, 30, 39, 0.4);
+        --sever-green-glow: rgba(16, 185, 129, 0.5);
+        --sever-accent: #10b981;
+        --theme-particle-r: 255;
+        --theme-particle-g: 30;
+        --theme-particle-b: 39;
+        --theme-particle-hex: #ff1e27;
+        --theme-sec-r: 16;
+        --theme-sec-g: 185;
+        --theme-sec-b: 129;
+        --theme-sec-hex: #10b981;
+      }
+
+      [data-theme="red-green"] {
+        --sever-red: #ff1e27;
+        --sever-green: #10b981;
+        --sever-red-hover: #e0121b;
+        --sever-red-glow: rgba(255, 30, 39, 0.4);
+        --sever-green-glow: rgba(16, 185, 129, 0.5);
+        --sever-accent: #10b981;
+        --theme-particle-r: 255;
+        --theme-particle-g: 30;
+        --theme-particle-b: 39;
+        --theme-particle-hex: #ff1e27;
+        --theme-sec-r: 16;
+        --theme-sec-g: 185;
+        --theme-sec-b: 129;
+        --theme-sec-hex: #10b981;
+      }
+
+      [data-theme="crimson"] {
+        --sever-red: #ff1e27;
+        --sever-green: #ff1e27;
+        --sever-red-hover: #e0121b;
+        --sever-red-glow: rgba(255, 30, 39, 0.4);
+        --sever-green-glow: rgba(255, 30, 39, 0.4);
+        --sever-accent: #ff3b44;
+        --theme-particle-r: 255;
+        --theme-particle-g: 30;
+        --theme-particle-b: 39;
+        --theme-particle-hex: #ff1e27;
+        --theme-sec-r: 255;
+        --theme-sec-g: 30;
+        --theme-sec-b: 39;
+        --theme-sec-hex: #ff1e27;
+      }
+
+      [data-theme="violet"] {
+        --sever-red: #a855f7;
+        --sever-green: #ec4899;
+        --sever-red-hover: #9333ea;
+        --sever-red-glow: rgba(168, 85, 247, 0.5);
+        --sever-green-glow: rgba(236, 72, 153, 0.5);
+        --sever-accent: #ec4899;
+        --theme-particle-r: 168;
+        --theme-particle-g: 85;
+        --theme-particle-b: 247;
+        --theme-particle-hex: #a855f7;
+        --theme-sec-r: 236;
+        --theme-sec-g: 72;
+        --theme-sec-b: 153;
+        --theme-sec-hex: #ec4899;
+      }
+
+      [data-theme="cyan"] {
+        --sever-red: #00f0ff;
+        --sever-green: #10b981;
+        --sever-red-hover: #00c8d7;
+        --sever-red-glow: rgba(0, 240, 255, 0.5);
+        --sever-green-glow: rgba(16, 185, 129, 0.5);
+        --sever-accent: #3b82f6;
+        --theme-particle-r: 0;
+        --theme-particle-g: 240;
+        --theme-particle-b: 255;
+        --theme-particle-hex: #00f0ff;
+        --theme-sec-r: 16;
+        --theme-sec-g: 185;
+        --theme-sec-b: 129;
+        --theme-sec-hex: #10b981;
+      }
+
+      [data-theme="emerald"] {
+        --sever-red: #10b981;
+        --sever-green: #10b981;
+        --sever-red-hover: #059669;
+        --sever-red-glow: rgba(16, 185, 129, 0.5);
+        --sever-green-glow: rgba(16, 185, 129, 0.5);
+        --sever-accent: #06b6d4;
+        --theme-particle-r: 16;
+        --theme-particle-g: 185;
+        --theme-particle-b: 129;
+        --theme-particle-hex: #10b981;
+        --theme-sec-r: 16;
+        --theme-sec-g: 185;
+        --theme-sec-b: 129;
+        --theme-sec-hex: #10b981;
+      }
+
+      [data-theme="gold"] {
+        --sever-red: #f59e0b;
+        --sever-green: #10b981;
+        --sever-red-hover: #d97706;
+        --sever-red-glow: rgba(245, 158, 11, 0.5);
+        --sever-green-glow: rgba(16, 185, 129, 0.5);
+        --sever-accent: #ef4444;
+        --theme-particle-r: 245;
+        --theme-particle-g: 158;
+        --theme-particle-b: 11;
+        --theme-particle-hex: #f59e0b;
+        --theme-sec-r: 16;
+        --theme-sec-g: 185;
+        --theme-sec-b: 129;
+        --theme-sec-hex: #10b981;
+      }
+
+      /* Dynamic utility class bindings */
+      .bg-sever-red {
+        background-color: var(--sever-red) !important;
+      }
+      .text-sever-red {
+        color: var(--sever-red) !important;
+      }
+      .border-sever-red {
+        border-color: var(--sever-red) !important;
+      }
+      .hover\:bg-sever-red:hover {
+        background-color: var(--sever-red) !important;
+      }
+      .hover\:text-sever-red:hover {
+        color: var(--sever-red) !important;
+      }
+      .hover\:border-sever-red:hover {
+        border-color: var(--sever-red) !important;
+      }
+
+      /* Dual Red-Green Special Highlights */
+      .badge-after-tag {
+        background-color: var(--sever-green, #10b981) !important;
+        color: #000000 !important;
+        box-shadow: 0 0 16px var(--sever-green-glow, rgba(16, 185, 129, 0.5)) !important;
+      }
+      .text-growth-accent {
+        color: var(--sever-green, #10b981) !important;
+        text-shadow: 0 0 16px var(--sever-green-glow, rgba(16, 185, 129, 0.5)) !important;
+      }
+
+      html, body {
+        background-color: #030303;
+        color: #ffffff;
+        font-family: 'Space Grotesk', sans-serif;
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Strict typography overflow prevention */
+      h1, h2, h3, h4, h5, h6, .break-force {
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        hyphens: auto;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #030303;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #22222a;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--sever-red);
+      }
+
+      /* Noise Background overlay */
+      .noise-bg {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+      }
+
+      /* Apple Grid lines background */
+      .grid-lines {
+        background-size: 60px 60px;
+        background-image: 
+          linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      }
+
+      /* Glow text utility */
+      .text-glow {
+        text-shadow: 0 0 25px var(--sever-red-glow) !important;
+      }
+
+      /* Apple Card styling */
+      .apple-card {
+        background: #0e0e12;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .apple-card:hover {
+        border-color: var(--sever-red-glow) !important;
+        box-shadow: 0 12px 40px -10px var(--sever-red-glow) !important;
+        transform: translateY(-4px);
+      }
+
+      .vinyl-grooves {
+        background: repeating-radial-gradient(
+          circle at center,
+          #0f0f0f 0px,
+          #1a1a1a 2px,
+          #080808 4px,
+          #151515 6px
+        );
+      }
+
+      /* Image zoom animation */
+      .img-zoom {
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .img-zoom:hover {
+        transform: scale(1.04);
+      }
+
+      /* Precision Interactive Slider Rules */
+      .slider-container {
+        position: relative;
+        width: 100%;
+        height: 420px;
+        min-height: 420px;
+        border-radius: 12px;
+        overflow: hidden;
+        user-select: none;
+        touch-action: pan-y;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: #000000;
+        --slider-pos: 50%;
+      }
+
+      @media (min-width: 640px) {
+        .slider-container {
+          height: 480px;
+          min-height: 480px;
+        }
+      }
+
+      /* Featured main case study tall sliders */
+      .slider-featured {
+        height: 540px !important;
+        min-height: 540px !important;
+      }
+
+      @media (min-width: 640px) {
+        .slider-featured {
+          height: 680px !important;
+          min-height: 680px !important;
+        }
+      }
+
+      .slider-after-img, .slider-before-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: top center !important;
+        pointer-events: none;
+      }
+
+      .slider-clip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 10;
+        clip-path: inset(0 calc(100% - var(--slider-pos, 50%)) 0 0);
+      }
+
+      .slider-handle-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: var(--slider-pos, 50%);
+        width: 2px;
+        background: var(--sever-red) !important;
+        z-index: 20;
+        transform: translateX(-50%);
+        pointer-events: none;
+        box-shadow: 0 0 12px var(--sever-red) !important;
+      }
+
+      .slider-handle-button {
+        position: absolute;
+        top: 50%;
+        left: var(--slider-pos, 50%);
+        transform: translate(-50%, -50%);
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: #030303;
+        border: 2px solid var(--sever-red) !important;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 800;
+        box-shadow: 0 0 24px var(--sever-red-glow) !important;
+        cursor: ew-resize;
+        z-index: 30;
+      }
+
+      /* Modal Lightbox transition */
+      .modal-backdrop {
+        transition: opacity 0.3s ease;
+      }
+
+      /* Mode Toggle Active state */
+      .view-btn-active {
+        background-color: var(--sever-red) !important;
+        color: #ffffff !important;
+        border-color: var(--sever-red) !important;
+      }
+    </style>
+  </head>
+
+  <body class="bg-sever-black text-white antialiased min-h-screen relative grid-lines">
+    
+    <!-- Background Canvas Particles -->
+    <canvas id="bg-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-50"></canvas>
+    <div class="fixed inset-0 noise-bg z-0 pointer-events-none"></div>
+
+    <div class="relative z-10 flex flex-col min-h-screen w-full overflow-x-hidden">
+
+      <!-- TOP FIXED APPLE-GRADE NAVBAR -->
+      <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3.5 border-b border-white/5 bg-black/80 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between">
+          
+          <!-- BRAND LOGO -->
+          <a href="#" class="group flex items-center gap-3">
+            <span class="font-syne font-black text-2xl tracking-tight text-white group-hover:text-sever-red transition-colors">SEVER</span>
+            <span class="w-2 h-2 rounded-full bg-sever-red shadow-[0_0_10px_#ff1e27]"></span>
+            <span class="text-[10px] font-space font-bold text-zinc-400 tracking-widest uppercase hidden sm:inline-block border-l border-white/10 pl-3">
+              WEB3 GROWTH ARCHITECT
+            </span>
+          </a>
+
+          <!-- DESKTOP NAVIGATION LINKS -->
+          <nav class="hidden md:flex items-center gap-8 text-xs font-space font-bold tracking-widest text-zinc-300">
+            <a href="#work" class="hover:text-sever-red transition-colors">CASE STUDIES</a>
+            <a href="#services" class="hover:text-sever-red transition-colors">SERVICES</a>
+            <a href="#results" class="hover:text-sever-red transition-colors">TRACK RECORD</a>
+            <a href="#about" class="hover:text-sever-red transition-colors">ABOUT</a>
+            <a href="#contact" class="hover:text-sever-red transition-colors">CONTACT</a>
+          </nav>
+
+          <!-- RIGHT ACTIONS -->
+          <div class="flex items-center gap-3">
+            <a 
+              href="https://t.me/severproofofwork" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 hover:border-sever-red rounded-lg text-xs font-space font-bold text-white transition-all hover:bg-sever-red/10"
+            >
+              <span>PROOF OF WORK</span>
+              <span class="text-sever-red">↗</span>
+            </a>
+
+            <a 
+              href="#contact" 
+              class="px-5 py-2.5 bg-sever-red hover:bg-sever-redHover rounded-lg text-xs font-space font-bold text-white transition-all shadow-[0_0_20px_rgba(255,30,39,0.4)]"
+            >
+              HIRE ME!!
+            </a>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button id="mobile-menu-btn" aria-label="Toggle Mobile Menu" class="md:hidden p-2.5 text-white hover:text-sever-red focus:outline-none cursor-pointer relative z-50 rounded-lg hover:bg-white/5 active:scale-95 transition-all">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- MOBILE MENU CONTAINER (SOLID OPAQUE DARK RED/BLACK BACKGROUND) -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-[58px] bg-[#08080c] border-b-2 border-sever-red py-6 px-6 flex flex-col gap-3 text-xs font-space font-bold tracking-widest z-[100] shadow-[0_30px_90px_rgba(0,0,0,1)]">
+          <a href="#work" class="py-3 text-white hover:text-sever-red border-b border-white/10 flex items-center justify-between"><span>CASE STUDIES</span><span class="text-sever-red">→</span></a>
+          <a href="#services" class="py-3 text-white hover:text-sever-red border-b border-white/10 flex items-center justify-between"><span>SERVICES</span><span class="text-sever-red">→</span></a>
+          <a href="#results" class="py-3 text-white hover:text-sever-red border-b border-white/10 flex items-center justify-between"><span>TRACK RECORD</span><span class="text-sever-red">→</span></a>
+          <a href="#about" class="py-3 text-white hover:text-sever-red border-b border-white/10 flex items-center justify-between"><span>ABOUT SEVER</span><span class="text-sever-red">→</span></a>
+          <a href="#contact" class="py-3 text-white hover:text-sever-red border-b border-white/10 flex items-center justify-between"><span>CONTACT</span><span class="text-sever-red">→</span></a>
+          <a href="https://t.me/severproofofwork" target="_blank" rel="noopener noreferrer" class="py-3 text-sever-red hover:underline flex items-center justify-between font-extrabold"><span>TELEGRAM PROOF OF WORK</span><span>↗</span></a>
+        </div>
+      </header>
+
+      <!-- HERO SECTION: PERFECTLY ALIGNED & RESPONSIVE -->
+      <section class="relative min-h-[90vh] pt-28 pb-16 sm:pt-36 sm:pb-28 flex items-center justify-center border-b border-white/10">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[600px] sm:h-[600px] bg-sever-red/10 rounded-full blur-[140px] pointer-events-none animate-pulse-subtle"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- LEFT HERO CONTENT -->
+          <div class="lg:col-span-7 flex flex-col items-start z-10 text-left">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-sever-red/10 border border-sever-red/30 rounded-full mb-6 backdrop-blur-md">
+              <span class="w-2 h-2 rounded-full bg-sever-red animate-ping"></span>
+              <span class="text-[10px] sm:text-[11px] font-space font-bold tracking-[0.2em] text-sever-red uppercase">[ COMMUNITY • CONTENT • GROWTH ]</span>
+            </div>
+
+            <h1 class="font-syne font-black text-4xl xs:text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-[0.92] mb-6 text-white uppercase break-force max-w-full">
+              SEVER<span class="text-sever-red text-glow">.</span>
+            </h1>
+
+            <div class="font-space font-bold text-xs sm:text-base text-zinc-300 tracking-wider mb-6 uppercase flex flex-wrap items-center gap-2">
+              <span class="text-white">WEB3 COMMUNITY</span>
+              <span class="text-sever-red">•</span>
+              <span class="text-white">CONTENT</span>
+              <span class="text-sever-red">•</span>
+              <span class="text-white">GROWTH ARCHITECT</span>
+            </div>
+
+            <p class="text-sm sm:text-lg text-zinc-300 font-normal leading-relaxed max-w-xl mb-8 sm:mb-10">
+              I help Web3 projects build active communities, create timeline attention, and convert viral momentum into <strong class="text-white font-semibold">measurable, verified community growth.</strong>
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+              <a href="#contact" class="px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl text-xs font-space font-bold tracking-widest text-white bg-sever-red hover:bg-sever-redHover transition-all shadow-[0_0_30px_rgba(255,30,39,0.4)] text-center">
+                WORK WITH SEVER ↗
+              </a>
+              <a href="#work" class="px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl text-xs font-space font-bold tracking-widest text-zinc-300 border border-white/10 hover:border-sever-red hover:text-white bg-white/5 backdrop-blur-md transition-all text-center">
+                EXPLORE CASE STUDIES ↓
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT HERO VISUAL: BRAND ROTATING VINYL FACE LOGO -->
+          <div class="lg:col-span-5 flex justify-center items-center relative z-10 mt-4 lg:mt-0">
+            <div id="vinyl-card" class="relative w-[280px] h-[280px] xs:w-[320px] xs:h-[320px] sm:w-[380px] sm:h-[380px] lg:w-[410px] lg:h-[410px] flex items-center justify-center animate-float">
+              
+              <!-- Subtle Red Backglow -->
+              <div class="absolute inset-0 rounded-full bg-sever-red/20 blur-3xl animate-pulse-subtle pointer-events-none"></div>
+
+              <!-- Outer Vinyl Container -->
+              <div class="w-full h-full rounded-full border border-sever-red/40 bg-sever-black shadow-[0_0_60px_rgba(255,30,39,0.25)] relative p-2.5 flex items-center justify-center overflow-hidden vinyl-grooves">
+                
+                <!-- Rotating Text Track Ring -->
+                <div class="absolute inset-2 rounded-full border border-white/10 flex items-center justify-center animate-spin-slow pointer-events-none">
+                  <svg class="w-full h-full" viewBox="0 0 200 200">
+                    <path id="textPath" d="M 100, 100 m -78, 0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" fill="none" />
+                    <text font-family="Space Grotesk" font-size="8.5" font-weight="700" fill="#ffffff" letter-spacing="2.8">
+                      <textPath href="#textPath" startOffset="0%">
+                        COMMUNITY • CONTENT • GROWTH • WEB3 • SEVER • EXECUTION • ATTENTION •
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+
+                <!-- SEVER FACE BRAND LOGO CENTER -->
+                <div 
+                  class="relative w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 rounded-full bg-sever-dark border-2 border-sever-red shadow-[0_0_40px_rgba(255,30,39,0.5)] overflow-hidden group cursor-pointer" 
+                  onclick="openLightbox('https://i.ibb.co/wrg54qxd/IMG-20260801-191336-867.jpg', 'SEVER Official Brand Face')"
+                >
+                  <img 
+                    src="https://i.ibb.co/wrg54qxd/IMG-20260801-191336-867.jpg" 
+                    alt="SEVER Brand Face Profile Logo" 
+                    class="w-full h-full object-cover img-zoom"
+                    referrerpolicy="no-referrer"
+                  />
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- STATEMENT PHILOSOPHY SECTION -->
+      <section class="py-16 sm:py-24 border-b border-white/10 relative bg-sever-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-8 h-[2px] bg-sever-red"></span>
+            <span class="text-xs font-space font-bold text-sever-red tracking-[0.2em] uppercase">THE PHILOSOPHY</span>
+          </div>
+
+          <h2 class="font-syne font-extrabold text-2xl xs:text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight uppercase leading-tight mb-6 max-w-5xl break-force">
+            WEB3 IS BUILT ON <span class="text-sever-red text-glow">ATTENTION.</span>
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div class="md:col-span-8">
+              <p class="text-base sm:text-2xl text-zinc-300 font-light leading-relaxed">
+                SEVER helps projects convert timeline attention into active, loyal holders through relentless community execution, organic content strategies, and strategic growth pushes.
+              </p>
+            </div>
+            <div class="md:col-span-4 border-l border-white/10 pl-6 py-1">
+              <div class="text-xs font-space font-bold text-zinc-400 uppercase tracking-widest mb-2">TRENCH-TESTED EXECUTION</div>
+              <p class="text-xs sm:text-sm font-space text-zinc-400 leading-relaxed">
+                Documented track record managing Telegram & Discord hubs with verified growth logs across dozens of Web3 launches.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SERVICES SECTION: UNIFIED GRID ALIGNMENT -->
+      <section id="services" class="py-16 sm:py-28 border-b border-white/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
+            <div>
+              <div class="text-xs font-space font-bold text-sever-red tracking-[0.2em] uppercase mb-2">SERVICES & CAPABILITIES</div>
+              <h2 class="font-syne font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight break-force">WHAT I DO</h2>
+            </div>
+            <div class="text-xs font-space font-bold text-zinc-400 tracking-wider uppercase">
+              STRATEGY • CREATIVE • ENGAGEMENT
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            
+            <!-- 01 COMMUNITY -->
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between h-full group">
+              <div>
+                <div class="font-space font-extrabold text-4xl sm:text-5xl text-sever-red mb-4 sm:mb-6">01</div>
+                <h3 class="font-syne font-bold text-xl sm:text-2xl text-white uppercase mb-3 sm:mb-4 group-hover:text-sever-red transition-colors">COMMUNITY</h3>
+                <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8">
+                  Building and moderating Telegram & Discord hubs where holders stay active 24/7 with organic hype and clear communication.
+                </p>
+              </div>
+              <ul class="space-y-2.5 font-space text-xs text-zinc-300 border-t border-white/10 pt-5">
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>Telegram Hub Management</li>
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>Discord Roles & Bot Architecture</li>
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>24/7 Trench Moderation</li>
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>Member Retention & Hype Campaigns</li>
+              </ul>
+            </div>
+
+            <!-- 02 CONTENT -->
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between h-full group">
+              <div>
+                <div class="font-space font-extrabold text-4xl sm:text-5xl text-sever-red mb-4 sm:mb-6">02</div>
+                <h3 class="font-syne font-bold text-xl sm:text-2xl text-white uppercase mb-3 sm:mb-4 group-hover:text-sever-red transition-colors">CONTENT</h3>
+                <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8">
+                  Crafting high-octane X/Twitter content, viral thread hooks, official announcements, and storytelling that captures timeline attention.
+                </p>
+              </div>
+              <ul class="space-y-2.5 font-space text-xs text-zinc-300 border-t border-white/10 pt-5">
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>X Content & High-Impact Threads</li>
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>Project Announcements & Lore</li>
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>Meme & Media Strategy</li>
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>Educational Thread Writing</li>
+              </ul>
+            </div>
+
+            <!-- 03 GROWTH -->
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between h-full group">
+              <div>
+                <div class="font-space font-extrabold text-4xl sm:text-5xl text-sever-red mb-4 sm:mb-6">03</div>
+                <h3 class="font-syne font-bold text-xl sm:text-2xl text-white uppercase mb-3 sm:mb-4 group-hover:text-sever-red transition-colors">GROWTH</h3>
+                <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8">
+                  Executing coordinated raiding pushes, partnership outreach, key influencer alignment, and launch strategies to scale fast.
+                </p>
+              </div>
+              <ul class="space-y-2.5 font-space text-xs text-zinc-300 border-t border-white/10 pt-5">
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>Web3 Marketing & Raid Pushes</li>
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>Strategic Partnership Outreach</li>
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>Collab & Alpha Calls</li>
+                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>Fair Launch & Presale Hype</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FEATURED TRANSFORMATIONS: BEFORE/AFTER INTERACTIVE SLIDERS + DUAL VIEW MODES -->
+      <section id="work" class="py-16 sm:py-28 border-b border-white/10 bg-sever-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          
+          <div class="mb-12 sm:mb-16">
+            <div class="text-xs font-space font-bold text-sever-red tracking-[0.2em] uppercase mb-2">CASE STUDIES & PROOF OF WORK</div>
+            <h2 class="font-syne font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight break-force">FEATURED TRANSFORMATIONS</h2>
+            <p class="text-zinc-400 font-space text-xs sm:text-sm mt-2 max-w-2xl">
+              Use the mode buttons to switch between the interactive comparison slider, uncropped Before view, or uncropped After view. Click any screenshot to open in high resolution!
+            </p>
+          </div>
+
+          <!-- CASE STUDY 1: AI COMPUTING NETWORK -->
+          <div class="apple-card p-5 sm:p-8 lg:p-10 mb-10" id="cs-1">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              <!-- LEFT INFO -->
+              <div class="lg:col-span-5 flex flex-col justify-center">
+                <span class="text-xs font-space font-bold text-sever-red uppercase tracking-wider mb-2">CASE STUDY / 001</span>
+                <h3 class="font-syne font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white uppercase mb-4 break-force">
+                  AI COMPUTING NETWORK
+                </h3>
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-sever-red/10 border border-sever-red/30 rounded-lg text-sever-red font-space font-bold text-sm sm:text-base mb-6 w-fit break-force">
+                  <span>90 → 2,000+ MEMBERS (~1 MONTH)</span>
+                </div>
+
+                <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-6">
+                  Transformed a quiet 90-member chat into a thriving 2,000+ member AI ecosystem through structured raids, organic content drops, and 24/7 engagement.
+                </p>
+
+                <!-- VIEW MODE SWITCHER BUTTONS -->
+                <div class="flex flex-wrap items-center gap-2 mb-6 text-xs font-space">
+                  <button onclick="setCaseStudyView('cs-1', 'slider')" id="cs-1-btn-slider" class="cs-btn px-3 py-1.5 rounded-md border border-white/20 bg-white/5 text-white font-bold hover:border-sever-red transition-all view-btn-active">
+                    ↔ Drag Compare
+                  </button>
+                  <button onclick="setCaseStudyView('cs-1', 'before')" id="cs-1-btn-before" class="cs-btn px-3 py-1.5 rounded-md border border-white/20 bg-white/5 text-zinc-300 font-bold hover:border-sever-red transition-all">
+                    🔴 Before (90)
+                  </button>
+                  <button onclick="setCaseStudyView('cs-1', 'after')" id="cs-1-btn-after" class="cs-btn px-3 py-1.5 rounded-md border border-white/20 bg-white/5 text-zinc-300 font-bold hover:border-sever-red transition-all">
+                    🟢 After (2,000+)
+                  </button>
+                </div>
+
+                <button onclick="openLightbox('https://i.ibb.co/nqLcXCWK/IMG-20260801-200427-386.jpg', 'AI Computing Network Telegram Screenshot')" class="text-xs font-space font-bold text-sever-red hover:underline uppercase flex items-center gap-1.5 w-fit">
+                  <span>🔍 VIEW FULL UNCROPPED SCREENSHOT</span> ↗
+                </button>
+              </div>
+
+              <!-- RIGHT VISUAL CONTAINER -->
+              <div class="lg:col-span-7">
+                
+                <!-- SLIDER MODE CONTAINER -->
+                <div id="cs-1-view-slider" class="cs-view-container">
+                  <div class="slider-container slider-featured" data-slider>
+                    <img src="https://i.ibb.co/nqLcXCWK/IMG-20260801-200427-386.jpg" alt="AI Computing Network After" class="slider-after-img" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-2.5 right-2.5 bg-sever-red text-white font-space font-bold text-[10px] sm:text-xs px-2.5 py-0.5 rounded shadow-md z-20">
+                      AFTER
+                    </span>
+
+                    <div class="slider-clip">
+                      <img src="https://i.ibb.co/1Y7mQBzj/IMG-20260801-200427-918.jpg" alt="AI Computing Network Before" class="slider-before-img" referrerpolicy="no-referrer"/>
+                      <span class="absolute top-2.5 left-2.5 bg-black/90 text-zinc-200 font-space font-bold text-[10px] sm:text-xs px-2.5 py-0.5 rounded border border-white/20 z-20">
+                        BEFORE
+                      </span>
+                    </div>
+
+                    <div class="slider-handle-line"></div>
+                    <div class="slider-handle-button">↔</div>
+                  </div>
+                </div>
+
+                <!-- BEFORE ONLY VIEW -->
+                <div id="cs-1-view-before" class="cs-view-container hidden">
+                  <div class="h-[540px] sm:h-[680px] w-full bg-black rounded-xl overflow-hidden border border-white/10 relative cursor-pointer" onclick="openLightbox('https://i.ibb.co/1Y7mQBzj/IMG-20260801-200427-918.jpg', 'AI Computing Network Before Full Screen')">
+                    <img src="https://i.ibb.co/1Y7mQBzj/IMG-20260801-200427-918.jpg" alt="AI Computing Network Before" class="w-full h-full object-cover object-top" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-2.5 left-2.5 bg-black/90 text-zinc-200 font-space font-bold text-xs px-2.5 py-0.5 rounded border border-white/20 z-20">
+                      BEFORE (90 MEMBERS)
+                    </span>
+                  </div>
+                </div>
+
+                <!-- AFTER ONLY VIEW -->
+                <div id="cs-1-view-after" class="cs-view-container hidden">
+                  <div class="h-[540px] sm:h-[680px] w-full bg-black rounded-xl overflow-hidden border border-white/10 relative cursor-pointer" onclick="openLightbox('https://i.ibb.co/nqLcXCWK/IMG-20260801-200427-386.jpg', 'AI Computing Network After Full Screen')">
+                    <img src="https://i.ibb.co/nqLcXCWK/IMG-20260801-200427-386.jpg" alt="AI Computing Network After" class="w-full h-full object-cover object-top" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-2.5 right-2.5 bg-sever-red text-white font-space font-bold text-xs px-2.5 py-0.5 rounded z-20">
+                      AFTER (2,000+ MEMBERS)
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CASE STUDY 2: RAMSEY & MISTLEY FC -->
+          <div class="apple-card p-5 sm:p-8 lg:p-10 mb-10" id="cs-2">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              <div class="lg:col-span-5 flex flex-col justify-center">
+                <span class="text-xs font-space font-bold text-sever-red uppercase tracking-wider mb-2">CASE STUDY / 002</span>
+                <h3 class="font-syne font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white uppercase mb-4 break-force">
+                  RAMSEY & MISTLEY FC
+                </h3>
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-sever-red/10 border border-sever-red/30 rounded-lg text-sever-red font-space font-bold text-sm sm:text-base mb-6 w-fit break-force">
+                  <span>18 → 500+ MEMBERS (&lt;2 WEEKS)</span>
+                </div>
+
+                <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-6">
+                  Expanded the official fan club community from 18 initial members to over 500+ active Telegram members in less than 14 days with relentless campaign pushes.
+                </p>
+
+                <!-- VIEW MODE SWITCHER BUTTONS -->
+                <div class="flex flex-wrap items-center gap-2 mb-6 text-xs font-space">
+                  <button onclick="setCaseStudyView('cs-2', 'slider')" id="cs-2-btn-slider" class="cs-btn px-3 py-1.5 rounded-md border border-white/20 bg-white/5 text-white font-bold hover:border-sever-red transition-all view-btn-active">
+                    ↔ Drag Compare
+                  </button>
+                  <button onclick="setCaseStudyView('cs-2', 'before')" id="cs-2-btn-before" class="cs-btn px-3 py-1.5 rounded-md border border-white/20 bg-white/5 text-zinc-300 font-bold hover:border-sever-red transition-all">
+                    🔴 Before (18)
+                  </button>
+                  <button onclick="setCaseStudyView('cs-2', 'after')" id="cs-2-btn-after" class="cs-btn px-3 py-1.5 rounded-md border border-white/20 bg-white/5 text-zinc-300 font-bold hover:border-sever-red transition-all">
+                    🟢 After (500+)
+                  </button>
+                </div>
+
+                <button onclick="openLightbox('https://i.ibb.co/CKTF1dqW/IMG-20260801-200420-113.jpg', 'Ramsey & Mistley FC Screenshot')" class="text-xs font-space font-bold text-sever-red hover:underline uppercase flex items-center gap-1.5 w-fit">
+                  <span>🔍 VIEW FULL UNCROPPED SCREENSHOT</span> ↗
+                </button>
+              </div>
+
+              <!-- RIGHT VISUAL CONTAINER -->
+              <div class="lg:col-span-7">
+                
+                <!-- SLIDER MODE CONTAINER -->
+                <div id="cs-2-view-slider" class="cs-view-container">
+                  <div class="slider-container slider-featured" data-slider>
+                    <img src="https://i.ibb.co/CKTF1dqW/IMG-20260801-200420-113.jpg" alt="Ramsey & Mistley After" class="slider-after-img" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-2.5 right-2.5 bg-sever-red text-white font-space font-bold text-[10px] sm:text-xs px-2.5 py-0.5 rounded shadow-md z-20">
+                      AFTER
+                    </span>
+
+                    <div class="slider-clip">
+                      <img src="https://i.ibb.co/hn9fpSM/IMG-20260801-200420-136.jpg" alt="Ramsey & Mistley Before" class="slider-before-img" referrerpolicy="no-referrer"/>
+                      <span class="absolute top-2.5 left-2.5 bg-black/90 text-zinc-200 font-space font-bold text-[10px] sm:text-xs px-2.5 py-0.5 rounded border border-white/20 z-20">
+                        BEFORE
+                      </span>
+                    </div>
+
+                    <div class="slider-handle-line"></div>
+                    <div class="slider-handle-button">↔</div>
+                  </div>
+                </div>
+
+                <!-- BEFORE ONLY VIEW -->
+                <div id="cs-2-view-before" class="cs-view-container hidden">
+                  <div class="h-[540px] sm:h-[680px] w-full bg-black rounded-xl overflow-hidden border border-white/10 relative cursor-pointer" onclick="openLightbox('https://i.ibb.co/hn9fpSM/IMG-20260801-200420-136.jpg', 'Ramsey & Mistley Before Full Screen')">
+                    <img src="https://i.ibb.co/hn9fpSM/IMG-20260801-200420-136.jpg" alt="Ramsey & Mistley Before" class="w-full h-full object-cover object-top" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-2.5 left-2.5 bg-black/90 text-zinc-200 font-space font-bold text-xs px-2.5 py-0.5 rounded border border-white/20 z-20">
+                      BEFORE (18 MEMBERS)
+                    </span>
+                  </div>
+                </div>
+
+                <!-- AFTER ONLY VIEW -->
+                <div id="cs-2-view-after" class="cs-view-container hidden">
+                  <div class="h-[540px] sm:h-[680px] w-full bg-black rounded-xl overflow-hidden border border-white/10 relative cursor-pointer" onclick="openLightbox('https://i.ibb.co/CKTF1dqW/IMG-20260801-200420-113.jpg', 'Ramsey & Mistley After Full Screen')">
+                    <img src="https://i.ibb.co/CKTF1dqW/IMG-20260801-200420-113.jpg" alt="Ramsey & Mistley After" class="w-full h-full object-cover object-top" referrerpolicy="no-referrer"/>
+                    <span class="absolute top-2.5 right-2.5 bg-sever-red text-white font-space font-bold text-xs px-2.5 py-0.5 rounded z-20">
+                      AFTER (500+ MEMBERS)
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- MORE BEFORE/AFTER CASE STUDY COMPARISONS GRID -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-10">
+            
+            <!-- BUBBLE PROJECT -->
+            <div class="apple-card p-5 sm:p-6" id="cs-3">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-xs font-space font-bold text-sever-red">CASE STUDY / 003</span>
+                <span class="text-xs font-space text-zinc-400">BUBBLE PROJECT</span>
+              </div>
+              <h4 class="font-syne font-bold text-lg sm:text-xl text-white uppercase mb-4 break-force">BUBBLE PROJECT OVERHAUL</h4>
+              
+              <div class="slider-container" data-slider>
+                <img src="https://i.ibb.co/sJHgdZPz/IMG-20260801-200434-391.jpg" alt="Bubble After" class="slider-after-img" referrerpolicy="no-referrer"/>
+                <span class="absolute top-2.5 right-2.5 bg-sever-red text-white font-space font-bold text-[10px] px-2 py-0.5 rounded z-20">AFTER</span>
+
+                <div class="slider-clip">
+                  <img src="https://i.ibb.co/9mf7KjQR/IMG-20260801-200434-255.jpg" alt="Bubble Before" class="slider-before-img" referrerpolicy="no-referrer"/>
+                  <span class="absolute top-2.5 left-2.5 bg-black/90 text-zinc-200 font-space font-bold text-[10px] px-2 py-0.5 rounded border border-white/20 z-20">BEFORE</span>
+                </div>
+
+                <div class="slider-handle-line"></div>
+                <div class="slider-handle-button">↔</div>
+              </div>
+
+              <div class="mt-3 flex justify-between items-center text-[11px] font-space">
+                <button onclick="openLightbox('https://i.ibb.co/9mf7KjQR/IMG-20260801-200434-255.jpg', 'Bubble Before Full View')" class="text-zinc-400 hover:text-white">🔴 Before View</button>
+                <button onclick="openLightbox('https://i.ibb.co/sJHgdZPz/IMG-20260801-200434-391.jpg', 'Bubble After Full View')" class="text-sever-red hover:underline font-bold">🟢 After View ↗</button>
+              </div>
+            </div>
+
+            <!-- LION'S DEN -->
+            <div class="apple-card p-5 sm:p-6" id="cs-4">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-xs font-space font-bold text-sever-red">CASE STUDY / 004</span>
+                <span class="text-xs font-space text-zinc-400">LION'S DEN</span>
+              </div>
+              <h4 class="font-syne font-bold text-lg sm:text-xl text-white uppercase mb-4 break-force">LION'S DEN ALPHA ROOM</h4>
+              
+              <div class="slider-container" data-slider>
+                <img src="https://i.ibb.co/1ty27bJS/IMG-20260801-200358-280.jpg" alt="Lions Den After" class="slider-after-img" referrerpolicy="no-referrer"/>
+                <span class="absolute top-2.5 right-2.5 bg-sever-red text-white font-space font-bold text-[10px] px-2 py-0.5 rounded z-20">AFTER</span>
+
+                <div class="slider-clip">
+                  <img src="https://i.ibb.co/WWP4TS2n/IMG-20260801-200354-375.jpg" alt="Lions Den Before" class="slider-before-img" referrerpolicy="no-referrer"/>
+                  <span class="absolute top-2.5 left-2.5 bg-black/90 text-zinc-200 font-space font-bold text-[10px] px-2 py-0.5 rounded border border-white/20 z-20">BEFORE</span>
+                </div>
+
+                <div class="slider-handle-line"></div>
+                <div class="slider-handle-button">↔</div>
+              </div>
+
+              <div class="mt-3 flex justify-between items-center text-[11px] font-space">
+                <button onclick="openLightbox('https://i.ibb.co/WWP4TS2n/IMG-20260801-200354-375.jpg', 'Lions Den Before')" class="text-zinc-400 hover:text-white">🔴 Before View</button>
+                <button onclick="openLightbox('https://i.ibb.co/1ty27bJS/IMG-20260801-200358-280.jpg', 'Lions Den After')" class="text-sever-red hover:underline font-bold">🟢 After View ↗</button>
+              </div>
+            </div>
+
+            <!-- MOUNTAIN GOATS -->
+            <div class="apple-card p-5 sm:p-6" id="cs-5">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-xs font-space font-bold text-sever-red">CASE STUDY / 005</span>
+                <span class="text-xs font-space text-zinc-400">MOUNTAIN GOATS</span>
+              </div>
+              <h4 class="font-syne font-bold text-lg sm:text-xl text-white uppercase mb-4 break-force">MOUNTAIN GOATS REBRAND</h4>
+              
+              <div class="slider-container" data-slider>
+                <img src="https://i.ibb.co/S4rs7JJP/IMG-20260801-200310-337.jpg" alt="Mountain Goats After" class="slider-after-img" referrerpolicy="no-referrer"/>
+                <span class="absolute top-2.5 right-2.5 bg-sever-red text-white font-space font-bold text-[10px] px-2 py-0.5 rounded z-20">AFTER</span>
+
+                <div class="slider-clip">
+                  <img src="https://i.ibb.co/fVyX6GxQ/IMG-20260801-200305-322.jpg" alt="Mountain Goats Before" class="slider-before-img" referrerpolicy="no-referrer"/>
+                  <span class="absolute top-2.5 left-2.5 bg-black/90 text-zinc-200 font-space font-bold text-[10px] px-2 py-0.5 rounded border border-white/20 z-20">BEFORE</span>
+                </div>
+
+                <div class="slider-handle-line"></div>
+                <div class="slider-handle-button">↔</div>
+              </div>
+
+              <div class="mt-3 flex justify-between items-center text-[11px] font-space">
+                <button onclick="openLightbox('https://i.ibb.co/fVyX6GxQ/IMG-20260801-200305-322.jpg', 'Mountain Goats Before')" class="text-zinc-400 hover:text-white">🔴 Before View</button>
+                <button onclick="openLightbox('https://i.ibb.co/S4rs7JJP/IMG-20260801-200310-337.jpg', 'Mountain Goats After')" class="text-sever-red hover:underline font-bold">🟢 After View ↗</button>
+              </div>
+            </div>
+
+            <!-- HAPPY HOUR -->
+            <div class="apple-card p-5 sm:p-6" id="cs-6">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-xs font-space font-bold text-sever-red">CASE STUDY / 006</span>
+                <span class="text-xs font-space text-zinc-400">HAPPY HOUR (40 → 140)</span>
+              </div>
+              <h4 class="font-syne font-bold text-lg sm:text-xl text-white uppercase mb-4 break-force">HAPPY HOUR COMMUNITY</h4>
+              
+              <div class="slider-container" data-slider>
+                <img src="https://i.ibb.co/NdS44mxR/IMG-20260801-200256-614.jpg" alt="Happy Hour After" class="slider-after-img" referrerpolicy="no-referrer"/>
+                <span class="absolute top-2.5 right-2.5 bg-sever-red text-white font-space font-bold text-[10px] px-2 py-0.5 rounded z-20">AFTER</span>
+
+                <div class="slider-clip">
+                  <img src="https://i.ibb.co/fYmkVP8B/IMG-20260801-200247-960.jpg" alt="Happy Hour Before" class="slider-before-img" referrerpolicy="no-referrer"/>
+                  <span class="absolute top-2.5 left-2.5 bg-black/90 text-zinc-200 font-space font-bold text-[10px] px-2 py-0.5 rounded border border-white/20 z-20">BEFORE</span>
+                </div>
+
+                <div class="slider-handle-line"></div>
+                <div class="slider-handle-button">↔</div>
+              </div>
+
+              <div class="mt-3 flex justify-between items-center text-[11px] font-space">
+                <button onclick="openLightbox('https://i.ibb.co/fYmkVP8B/IMG-20260801-200247-960.jpg', 'Happy Hour Before')" class="text-zinc-400 hover:text-white">🔴 Before View</button>
+                <button onclick="openLightbox('https://i.ibb.co/NdS44mxR/IMG-20260801-200256-614.jpg', 'Happy Hour After')" class="text-sever-red hover:underline font-bold">🟢 After View ↗</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- VERIFIED RESULTS TRACK RECORD SECTION -->
+      <section id="results" class="py-16 sm:py-28 border-b border-white/10 bg-sever-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          
+          <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div class="text-xs font-space font-bold text-sever-red tracking-[0.2em] uppercase mb-2">TRACK RECORD</div>
+            <h2 class="font-syne font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight mb-4 break-force">
+              PROVEN IN THE TRENCHES<span class="text-sever-red text-glow">.</span>
+            </h2>
+            <p class="text-zinc-400 font-space text-xs sm:text-sm">Real communities built from scratch with documented proof.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 sm:mb-16">
+            
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
+              <div class="text-xs font-space font-bold text-zinc-400 uppercase mb-3">AI COMPUTING NETWORK</div>
+              <div class="flex items-baseline gap-2 mb-2 flex-wrap">
+                <span class="font-space text-xl sm:text-2xl text-zinc-500">90</span>
+                <span class="text-sever-red text-xl sm:text-2xl">→</span>
+                <span class="font-syne font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sever-red text-glow break-force">2,000+</span>
+              </div>
+              <div class="text-xs font-space font-bold text-zinc-300 uppercase">TELEGRAM MEMBERS IN ~1 MONTH</div>
+            </div>
+
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
+              <div class="text-xs font-space font-bold text-zinc-400 uppercase mb-3">RAMSEY & MISTLEY FC</div>
+              <div class="flex items-baseline gap-2 mb-2 flex-wrap">
+                <span class="font-space text-xl sm:text-2xl text-zinc-500">18</span>
+                <span class="text-sever-red text-xl sm:text-2xl">→</span>
+                <span class="font-syne font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sever-red text-glow break-force">500+</span>
+              </div>
+              <div class="text-xs font-space font-bold text-zinc-300 uppercase">TELEGRAM MEMBERS IN &lt;2 WEEKS</div>
+            </div>
+
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
+              <div class="text-xs font-space font-bold text-zinc-400 uppercase mb-3">BLOCK COOP</div>
+              <div class="flex items-baseline gap-2 mb-2 flex-wrap">
+                <span class="font-space text-xl sm:text-2xl text-zinc-500">122</span>
+                <span class="text-sever-red text-xl sm:text-2xl">→</span>
+                <span class="font-syne font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sever-red text-glow break-force">500+</span>
+              </div>
+              <div class="text-xs font-space font-bold text-zinc-300 uppercase">TELEGRAM MEMBERS IN ~1 MONTH</div>
+            </div>
+
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
+              <div class="text-xs font-space font-bold text-zinc-400 uppercase mb-3">TRIPLE T COMMUNITY</div>
+              <div class="flex items-baseline gap-2 mb-2 flex-wrap">
+                <span class="font-space text-xl sm:text-2xl text-zinc-500">29</span>
+                <span class="text-sever-red text-xl sm:text-2xl">→</span>
+                <span class="font-syne font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sever-red text-glow break-force">75</span>
+              </div>
+              <div class="text-xs font-space font-bold text-zinc-300 uppercase">MEMBERS IN &lt;2 DAYS</div>
+            </div>
+
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
+              <div class="text-xs font-space font-bold text-zinc-400 uppercase mb-3">HAPPY HOUR</div>
+              <div class="flex items-baseline gap-2 mb-2 flex-wrap">
+                <span class="font-space text-xl sm:text-2xl text-zinc-500">40</span>
+                <span class="text-sever-red text-xl sm:text-2xl">→</span>
+                <span class="font-syne font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sever-red text-glow break-force">140</span>
+              </div>
+              <div class="text-xs font-space font-bold text-zinc-300 uppercase">MEMBERS IN ~1 MONTH</div>
+            </div>
+
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
+              <div class="text-xs font-space font-bold text-zinc-400 uppercase mb-3">GROCK DODGE ARMY</div>
+              <div class="flex items-baseline gap-2 mb-2 flex-wrap">
+                <span class="font-space text-xl sm:text-2xl text-zinc-500">1</span>
+                <span class="text-sever-red text-xl sm:text-2xl">→</span>
+                <span class="font-syne font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sever-red text-glow break-force">50</span>
+              </div>
+              <div class="text-xs font-space font-bold text-zinc-300 uppercase">MEMBERS IN 1 DAY</div>
+            </div>
+
+          </div>
+
+          <!-- PROOF OF WORK TELEGRAM CTA CARD -->
+          <div class="apple-card p-6 sm:p-12 text-center relative overflow-hidden border-sever-red/40 bg-gradient-to-r from-sever-card via-sever-black to-sever-card">
+            <div class="text-xs font-space font-bold text-sever-red tracking-[0.2em] uppercase mb-2">TELEGRAM PROOF OF WORK CHANNEL</div>
+            <h3 class="font-syne font-extrabold text-2xl sm:text-4xl lg:text-5xl text-white uppercase mb-4 break-force">EXPLORE LIVE PROOF OF WORK</h3>
+            <p class="text-zinc-300 font-space text-xs sm:text-sm max-w-xl mx-auto mb-8">
+              View continuous logs, screenshots, chat stats, and community announcements directly inside SEVER's official Telegram proof-of-work channel.
+            </p>
+            <a 
+              href="https://t.me/severproofofwork" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 bg-sever-red rounded-xl text-white font-space font-bold text-xs tracking-widest hover:bg-sever-redHover transition-all shadow-[0_0_30px_rgba(255,30,39,0.5)] uppercase"
+            >
+              <span>OPEN TELEGRAM PROOF OF WORK</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FULL PORTFOLIO GALLERY OF ALL WORKED PROJECTS -->
+      <section class="py-16 sm:py-28 border-b border-white/10 bg-sever-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          
+          <div class="mb-12 sm:mb-16">
+            <div class="text-xs font-space font-bold text-sever-red tracking-[0.2em] uppercase mb-2">COMPLETE WORK GALLERY</div>
+            <h2 class="font-syne font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight break-force">PROJECTS SEVER HAS WORKED WITH</h2>
+            <p class="text-zinc-400 font-space text-xs sm:text-sm mt-2">Click any screenshot card to view the full uncropped image in high resolution.</p>
+          </div>
+
+          <!-- UNIFIED 4-COLUMN GRID WITH UNCROPPED FULL SCALE SCREENSHOTS -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            
+            <!-- PROP DAO -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/35yg4ScQ/IMG-20260801-200441-056.jpg', 'Prop DAO Project')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/35yg4ScQ/IMG-20260801-200441-056.jpg" alt="Prop DAO" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">PROP DAO</div>
+                  <div class="text-[11px] font-space text-zinc-400">Community & Growth</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- MAH GPT -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/TDthLQJn/IMG-20260801-200438-126.jpg', 'MAH GPT Project')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/TDthLQJn/IMG-20260801-200438-126.jpg" alt="MAH GPT" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">MAH GPT</div>
+                  <div class="text-[11px] font-space text-zinc-400">9 → 17 Members (1 Day)</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- DEMIOURGUS HOLDINGS -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/tPq5QXFm/IMG-20260801-200406-836.jpg', 'Demiourgus Holdings')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/tPq5QXFm/IMG-20260801-200406-836.jpg" alt="Demiourgus Holdings" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">DEMIOURGUS HOLDINGS</div>
+                  <div class="text-[11px] font-space text-zinc-400">Web3 Ecosystem</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- PEPE & PENNY -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/tThkPLnF/IMG-20260801-200404-269.jpg', 'Pepe & Penny')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/tThkPLnF/IMG-20260801-200404-269.jpg" alt="Pepe & Penny" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">PEPE & PENNY</div>
+                  <div class="text-[11px] font-space text-zinc-400">Community Engagement</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- TRIPLE T COMMUNITY -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/Swby06Gq/IMG-20260801-200400-872.jpg', 'Triple T Community')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/Swby06Gq/IMG-20260801-200400-872.jpg" alt="Triple T Community" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">TRIPLE T COMMUNITY</div>
+                  <div class="text-[11px] font-space text-zinc-400">29 → 75 Members (&lt;2 Days)</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- WORLD WAR PEE -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/SDC8f4Rr/IMG-20260801-200351-971.jpg', 'World War Pee')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/SDC8f4Rr/IMG-20260801-200351-971.jpg" alt="World War Pee" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">WORLD WAR PEE</div>
+                  <div class="text-[11px] font-space text-zinc-400">Campaign Execution</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- BABY PENGU -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/Hpp9w7Ly/IMG-20260801-200337-787.jpg', 'Baby Pengu')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/Hpp9w7Ly/IMG-20260801-200337-787.jpg" alt="Baby Pengu" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">BABY PENGU</div>
+                  <div class="text-[11px] font-space text-zinc-400">Meme Token Growth</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- BMB DEVELOPERS -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/21zG4wjm/IMG-20260801-200334-131.jpg', 'BMB Developers')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/21zG4wjm/IMG-20260801-200334-131.jpg" alt="BMB Developers" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">BMB DEVELOPERS</div>
+                  <div class="text-[11px] font-space text-zinc-400">Developer Hub</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- NIGERIA FUND -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/SXNWL4jM/IMG-20260801-200327-190.jpg', 'Nigeria Fund')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/SXNWL4jM/IMG-20260801-200327-190.jpg" alt="Nigeria Fund" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">NIGERIA FUND</div>
+                  <div class="text-[11px] font-space text-zinc-400">Web3 Regional Growth</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- WALL STREET DEGEN -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/1GXpLLxk/IMG-20260801-200320-121.jpg', 'Wall Street Degen')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/1GXpLLxk/IMG-20260801-200320-121.jpg" alt="Wall Street Degen" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">WALL STREET DEGEN</div>
+                  <div class="text-[11px] font-space text-zinc-400">Trading Alpha Community</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- RACCOON WITH GLASSES -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/X1t3fh5/IMG-20260801-200324-447.jpg', 'Raccoon With Glasses')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/X1t3fh5/IMG-20260801-200324-447.jpg" alt="Raccoon With Glasses" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">RACCOON WITH GLASSES</div>
+                  <div class="text-[11px] font-space text-zinc-400">Community Management</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- GROCK DODGE ARMY -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/hRwRbmPD/IMG-20260801-200301-479.jpg', 'Grock Dodge Army')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/hRwRbmPD/IMG-20260801-200301-479.jpg" alt="Grock Dodge Army" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">GROCK DODGE ARMY</div>
+                  <div class="text-[11px] font-space text-zinc-400">1 → 50 Members (1 Day)</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- PHOXY ARMY -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/tPssKyC9/IMG-20260801-200244-950.jpg', 'Phoxy Army')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/tPssKyC9/IMG-20260801-200244-950.jpg" alt="Phoxy Army" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">PHOXY ARMY</div>
+                  <div class="text-[11px] font-space text-zinc-400">Community Raids</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- BLOCK COOP -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/DfX1pvPn/IMG-20260801-200230-181.jpg', 'Block Coop')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/DfX1pvPn/IMG-20260801-200230-181.jpg" alt="Block Coop" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">BLOCK COOP</div>
+                  <div class="text-[11px] font-space text-zinc-400">122 → 500+ Members</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- SCOOFLIX CHAT -->
+            <div class="apple-card overflow-hidden group cursor-pointer" onclick="openLightbox('https://i.ibb.co/5gXkZY9V/IMG-20260801-200239-634.jpg', 'Scooflix Chat')">
+              <div class="min-h-[300px] max-h-[460px] h-[360px] overflow-hidden bg-black relative p-2 flex items-center justify-center">
+                <img src="https://i.ibb.co/5gXkZY9V/IMG-20260801-200239-634.jpg" alt="Scooflix Chat" class="w-full h-full object-contain img-zoom" referrerpolicy="no-referrer"/>
+              </div>
+              <div class="p-4 border-t border-white/10 flex justify-between items-center bg-black/40">
+                <div>
+                  <div class="font-syne font-bold text-sm text-white">SCOOFLIX CHAT</div>
+                  <div class="text-[11px] font-space text-zinc-400">Chat Moderation & Hype</div>
+                </div>
+                <span class="text-sever-red text-xs font-bold">↗</span>
+              </div>
+            </div>
+
+            <!-- MORE PROJECTS CARD -->
+            <div class="apple-card border-sever-red/30 p-6 flex flex-col justify-center items-center text-center">
+              <div class="font-syne font-extrabold text-lg text-sever-red uppercase mb-2">AND DOZENS MORE...</div>
+              <p class="text-xs font-space text-zinc-400 leading-relaxed mb-4">
+                Degen Casino, Starlumens, and meme token launches across Ethereum, Solana & BNB Chain.
+              </p>
+              <a href="https://t.me/severproofofwork" target="_blank" class="text-xs font-space font-bold text-white hover:text-sever-red">
+                CHECK PROOF OF WORK ↗
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ABOUT SEVER SECTION: SYMMETRIC 2-COLUMN LAYOUT -->
+      <section id="about" class="py-16 sm:py-28 border-b border-white/10 bg-sever-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- LEFT: SEVER PROFILE PORTRAIT -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-56 h-56 sm:w-80 sm:h-80 rounded-full border-2 border-sever-red/60 p-2 bg-sever-card shadow-[0_0_50px_rgba(255,30,39,0.3)]">
+              <img 
+                src="https://i.ibb.co/wrg54qxd/IMG-20260801-191336-867.jpg" 
+                alt="SEVER Profile Portrait" 
+                class="w-full h-full object-cover rounded-full cursor-pointer hover:scale-105 transition-transform"
+                onclick="openLightbox('https://i.ibb.co/wrg54qxd/IMG-20260801-191336-867.jpg', 'SEVER Profile Portrait')"
+                referrerpolicy="no-referrer"
+              />
+            </div>
+          </div>
+
+          <!-- RIGHT: ABOUT BIO -->
+          <div class="lg:col-span-7 flex flex-col justify-center">
+            <div class="text-xs font-space font-bold text-sever-red tracking-[0.2em] uppercase mb-2">ABOUT SEVER</div>
+            <h2 class="font-syne font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight mb-6 break-force">
+              THE MAN IN THE TRENCHES<span class="text-sever-red text-glow">.</span>
+            </h2>
+            <p class="text-sm sm:text-lg text-zinc-300 font-light leading-relaxed mb-6">
+              I am <strong class="text-white font-semibold">SEVER</strong> — a dedicated Web3 community lead, content manager, and growth strategist. I don't give fluffy advice; I step into your project, take over Telegram & Discord management, write high-converting X threads, and drive active holder engagement.
+            </p>
+            <p class="text-xs sm:text-sm text-zinc-400 font-space leading-relaxed mb-8">
+              Whether you are launching a new meme token, building a DeFi protocol, or scaling an AI Web3 network, SEVER provides full-stack execution to make sure your project stays loud, active, and constantly growing.
+            </p>
+
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
+              <div>
+                <div class="font-syne font-extrabold text-2xl sm:text-3xl text-sever-red">30+</div>
+                <div class="text-[10px] sm:text-xs font-space text-zinc-400 uppercase mt-1">Web3 Projects</div>
+              </div>
+              <div>
+                <div class="font-syne font-extrabold text-2xl sm:text-3xl text-sever-red">24/7</div>
+                <div class="text-[10px] sm:text-xs font-space text-zinc-400 uppercase mt-1">Trench Execution</div>
+              </div>
+              <div>
+                <div class="font-syne font-extrabold text-2xl sm:text-3xl text-sever-red">100%</div>
+                <div class="text-[10px] sm:text-xs font-space text-zinc-400 uppercase mt-1">Verified Growth</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- METHODOLOGY / PROCESS SECTION -->
+      <section class="py-16 sm:py-28 border-b border-white/10 bg-sever-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          
+          <div class="mb-12 sm:mb-16 text-center">
+            <div class="text-xs font-space font-bold text-sever-red tracking-[0.2em] uppercase mb-2">METHODOLOGY</div>
+            <h2 class="font-syne font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight break-force">HOW SEVER DELIVERS</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div class="font-space font-extrabold text-3xl sm:text-4xl text-sever-red mb-3">01</div>
+                <h3 class="font-syne font-bold text-lg sm:text-xl text-white uppercase mb-2">AUDIT & PLAN</h3>
+                <p class="text-zinc-400 text-xs font-space leading-relaxed">
+                  Review current chat activity, target demographics, tokenomics, and growth roadblocks.
+                </p>
+              </div>
+            </div>
+
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div class="font-space font-extrabold text-3xl sm:text-4xl text-sever-red mb-3">02</div>
+                <h3 class="font-syne font-bold text-lg sm:text-xl text-white uppercase mb-2">STRUCTURE</h3>
+                <p class="text-zinc-400 text-xs font-space leading-relaxed">
+                  Re-organize Telegram & Discord channels, setup roles, and build content release cadences.
+                </p>
+              </div>
+            </div>
+
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div class="font-space font-extrabold text-3xl sm:text-4xl text-sever-red mb-3">03</div>
+                <h3 class="font-syne font-bold text-lg sm:text-xl text-white uppercase mb-2">EXECUTE</h3>
+                <p class="text-zinc-400 text-xs font-space leading-relaxed">
+                  Launch raiding campaigns, post viral X threads, and maintain 24/7 engagement inside chats.
+                </p>
+              </div>
+            </div>
+
+            <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div class="font-space font-extrabold text-3xl sm:text-4xl text-sever-red mb-3">04</div>
+                <h3 class="font-syne font-bold text-lg sm:text-xl text-white uppercase mb-2">SCALE</h3>
+                <p class="text-zinc-400 text-xs font-space leading-relaxed">
+                  Log active statistics, optimize raid conversions, and secure strategic Web3 partnerships.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION: APPLE LEVEL MINIMALIST DIRECT CONTACT -->
+      <section id="contact" class="py-16 sm:py-28 border-b border-white/10 bg-sever-black relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 text-center">
+          
+          <div class="text-xs font-space font-bold text-sever-red tracking-[0.2em] uppercase mb-3">DIRECT CONTACT</div>
+          <h2 class="font-syne font-extrabold text-3xl sm:text-6xl lg:text-7xl text-white uppercase tracking-tight leading-none mb-6 break-force">
+            LET'S BUILD SOMETHING<span class="text-sever-red text-glow">.</span>
+          </h2>
+          <p class="text-zinc-400 font-space text-sm sm:text-base max-w-xl mx-auto mb-12">
+            Ready to scale your Web3 community with someone who lives in the trenches? Reach out directly.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            
+            <!-- X / TWITTER -->
+            <a href="https://x.com/severmusic3" target="_blank" rel="noopener noreferrer" class="apple-card p-6 sm:p-8 flex flex-col items-center group">
+              <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white font-syne font-black text-lg mb-4 group-hover:border-sever-red group-hover:text-sever-red transition-all">
+                𝕏
+              </div>
+              <div class="font-syne font-bold text-lg sm:text-xl text-white mb-1">X / TWITTER</div>
+              <div class="text-xs font-space text-zinc-400 mb-4">@severmusic3</div>
+              <span class="text-xs font-space font-bold text-sever-red uppercase">SEND DM ON X ↗</span>
+            </a>
+
+            <!-- TELEGRAM -->
+            <a href="https://t.me/SEVER333" target="_blank" rel="noopener noreferrer" class="apple-card p-6 sm:p-8 flex flex-col items-center border-sever-red/50 bg-sever-red/5 group">
+              <div class="w-12 h-12 rounded-full bg-sever-red/10 border border-sever-red/40 flex items-center justify-center text-sever-red font-syne font-black text-lg mb-4 group-hover:bg-sever-red group-hover:text-white transition-all">
+                ✈
+              </div>
+              <div class="font-syne font-bold text-lg sm:text-xl text-white mb-1">TELEGRAM</div>
+              <div class="text-xs font-space text-zinc-400 mb-4">@SEVER333</div>
+              <span class="text-xs font-space font-bold text-sever-red uppercase">MESSAGE ON TELEGRAM ↗</span>
+            </a>
+
+            <!-- PROOF OF WORK -->
+            <a href="https://t.me/severproofofwork" target="_blank" rel="noopener noreferrer" class="apple-card p-6 sm:p-8 flex flex-col items-center group">
+              <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white font-syne font-black text-lg mb-4 group-hover:border-sever-red group-hover:text-sever-red transition-all">
+                📊
+              </div>
+              <div class="font-syne font-bold text-lg sm:text-xl text-white mb-1">PROOF OF WORK</div>
+              <div class="text-xs font-space text-zinc-400 mb-4">t.me/severproofofwork</div>
+              <span class="text-xs font-space font-bold text-sever-red uppercase">VIEW LOGS & PROOF ↗</span>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- APPLE/SAMSUNG LEVEL CLEAN FOOTER -->
+      <footer class="py-10 bg-sever-dark border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+          
+          <div class="flex items-center gap-3">
+            <span class="font-syne font-black text-xl text-white">SEVER</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-sever-red"></span>
+            <span class="text-[11px] font-space text-zinc-500 uppercase">WEB3 COMMUNITY • CONTENT • GROWTH</span>
+          </div>
+
+          <div class="flex items-center gap-6 text-xs font-space font-semibold text-zinc-400 flex-wrap justify-center">
+            <a href="https://x.com/severmusic3" target="_blank" class="hover:text-sever-red transition-colors">X / TWITTER</a>
+            <a href="https://t.me/SEVER333" target="_blank" class="hover:text-sever-red transition-colors">TELEGRAM</a>
+            <a href="https://t.me/severproofofwork" target="_blank" class="hover:text-sever-red transition-colors">PROOF OF WORK</a>
+          </div>
+
+          <div class="text-[11px] font-space text-zinc-600">
+            © 2026 SEVER. ALL RIGHTS RESERVED.
+          </div>
+
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- HIGH-RESOLUTION UNCROPPED LIGHTBOX MODAL -->
+    <div 
+      id="lightbox-modal" 
+      class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-black/92 backdrop-blur-2xl modal-backdrop opacity-0" 
+      onclick="closeLightbox()"
+    >
+      <div class="relative max-w-5xl w-full bg-sever-card border border-white/20 rounded-2xl p-3 sm:p-5 overflow-hidden shadow-2xl flex flex-col max-h-[92vh]" onclick="event.stopPropagation()">
+        
+        <div class="flex justify-between items-center pb-3 border-b border-white/10 mb-2">
+          <div class="font-syne font-bold text-xs sm:text-sm text-zinc-200" id="lightbox-title">
+            Full Uncropped Telegram Screenshot
+          </div>
+          <button 
+            onclick="closeLightbox()" 
+            class="w-8 h-8 rounded-full bg-black/80 border border-white/20 text-white font-bold flex items-center justify-center hover:bg-sever-red transition-colors text-xs"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-auto flex items-center justify-center bg-black rounded-lg p-2 min-h-[300px]">
+          <img 
+            id="lightbox-img" 
+            src="" 
+            alt="High Res Preview" 
+            class="max-h-[78vh] w-auto max-w-full object-contain rounded" 
+            referrerpolicy="no-referrer"
+          />
+        </div>
+
+        <div class="pt-3 text-center text-[11px] font-space text-zinc-400">
+          <span>Scroll or pinch to zoom image details • Press ✕ or click outside to exit</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FLOATING THEME MATRIX CONTROLLER -->
+    <div id="theme-controller" class="fixed bottom-4 right-4 z-50 flex items-center gap-2 p-2 rounded-2xl bg-black/90 backdrop-blur-2xl border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.8)] text-xs font-space">
+      <div class="flex items-center gap-1.5 pl-2 pr-2 border-r border-white/10">
+        <span class="text-[10px] font-bold tracking-widest text-zinc-400 uppercase">THEME</span>
+      </div>
+      
+      <div class="flex items-center gap-2 px-1">
+        <!-- RED & GREEN DUAL HYBRID -->
+        <button onclick="setTheme('red-green')" title="Red & Green Dual Hybrid" class="theme-btn w-6 h-6 rounded-full border-2 border-white/30 hover:scale-110 transition-transform shadow-[0_0_12px_#10b981] relative group overflow-hidden" style="background: linear-gradient(135deg, #ff1e27 50%, #10b981 50%);" data-theme-btn="red-green">
+          <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[9px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/20">Red & Green Dual</span>
+        </button>
+
+        <!-- CRIMSON -->
+        <button onclick="setTheme('crimson')" title="Crimson Red" class="theme-btn w-6 h-6 rounded-full bg-[#ff1e27] border-2 border-white/30 hover:scale-110 transition-transform shadow-[0_0_12px_#ff1e27] relative group" data-theme-btn="crimson">
+          <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[9px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/20">Crimson Red</span>
+        </button>
+
+        <!-- VIOLET -->
+        <button onclick="setTheme('violet')" title="Neon Violet" class="theme-btn w-6 h-6 rounded-full bg-[#a855f7] border-2 border-white/30 hover:scale-110 transition-transform shadow-[0_0_12px_#a855f7] relative group" data-theme-btn="violet">
+          <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[9px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/20">Neon Violet</span>
+        </button>
+
+        <!-- CYAN -->
+        <button onclick="setTheme('cyan')" title="Cyber Cyan" class="theme-btn w-6 h-6 rounded-full bg-[#00f0ff] border-2 border-white/30 hover:scale-110 transition-transform shadow-[0_0_12px_#00f0ff] relative group" data-theme-btn="cyan">
+          <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[9px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/20">Cyber Cyan</span>
+        </button>
+
+        <!-- EMERALD -->
+        <button onclick="setTheme('emerald')" title="Matrix Mint" class="theme-btn w-6 h-6 rounded-full bg-[#10b981] border-2 border-white/30 hover:scale-110 transition-transform shadow-[0_0_12px_#10b981] relative group" data-theme-btn="emerald">
+          <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[9px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/20">Matrix Mint</span>
+        </button>
+
+        <!-- GOLD -->
+        <button onclick="setTheme('gold')" title="Solar Gold" class="theme-btn w-6 h-6 rounded-full bg-[#f59e0b] border-2 border-white/30 hover:scale-110 transition-transform shadow-[0_0_12px_#f59e0b] relative group" data-theme-btn="gold">
+          <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[9px] font-bold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/20">Solar Gold</span>
+        </button>
+      </div>
+
+      <!-- RESET BUTTON -->
+      <button onclick="setTheme('red-green')" class="ml-1 px-2.5 py-1 bg-white/10 hover:bg-white/20 text-[10px] font-bold text-zinc-300 hover:text-white rounded-lg transition-colors uppercase tracking-wider">
+        RESET
+      </button>
+    </div>
+
+    <!-- JAVASCRIPT FOR PARTICLES, SLIDERS & DUAL VIEW MODES -->
+    <script>
+      // 0. Theme Matrix Functions
+      function setTheme(themeName) {
+        document.documentElement.setAttribute('data-theme', themeName);
+        localStorage.setItem('sever_theme', themeName);
+
+        document.querySelectorAll('[data-theme-btn]').forEach(btn => {
+          if (btn.getAttribute('data-theme-btn') === themeName) {
+            btn.classList.add('ring-2', 'ring-white', 'scale-110');
+          } else {
+            btn.classList.remove('ring-2', 'ring-white', 'scale-110');
+          }
+        });
+      }
+
+      // Initialize theme on load (Default to Red & Green Hybrid)
+      const savedTheme = localStorage.getItem('sever_theme') || 'red-green';
+      setTheme(savedTheme);
+
+      // 1. Background Canvas Particles
+      const canvas = document.getElementById('bg-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      for (let i = 0; i < 35; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2 + 0.5,
+          speedY: Math.random() * -0.5 - 0.2,
+          speedX: (Math.random() - 0.5) * 0.3,
+          opacity: Math.random() * 0.5 + 0.2
+        });
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const pr = getComputedStyle(document.documentElement).getPropertyValue('--theme-particle-r').trim() || '255';
+        const pg = getComputedStyle(document.documentElement).getPropertyValue('--theme-particle-g').trim() || '30';
+        const pb = getComputedStyle(document.documentElement).getPropertyValue('--theme-particle-b').trim() || '39';
+        const phex = getComputedStyle(document.documentElement).getPropertyValue('--theme-particle-hex').trim() || '#ff1e27';
+
+        const secR = getComputedStyle(document.documentElement).getPropertyValue('--theme-sec-r').trim();
+        const secG = getComputedStyle(document.documentElement).getPropertyValue('--theme-sec-g').trim();
+        const secB = getComputedStyle(document.documentElement).getPropertyValue('--theme-sec-b').trim();
+        const secHex = getComputedStyle(document.documentElement).getPropertyValue('--theme-sec-hex').trim();
+
+        particles.forEach((p, idx) => {
+          p.y += p.speedY;
+          p.x += p.speedX;
+          if (p.y < 0) {
+            p.y = canvas.height;
+            p.x = Math.random() * canvas.width;
+          }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+
+          let curR = pr, curG = pg, curB = pb, curHex = phex;
+          if (secR && idx % 2 === 1) {
+            curR = secR; curG = secG; curB = secB; curHex = secHex;
+          }
+
+          ctx.fillStyle = `rgba(${curR}, ${curG}, ${curB}, ${p.opacity})`;
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = curHex;
+          ctx.fill();
+        });
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+
+      // 2. Mobile Menu Toggle
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+        document.addEventListener('click', (e) => {
+          if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+      }
+
+      // 3. Navbar Sticky Glass Effect
+      window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 30) {
+          navbar.classList.add('bg-black/95', 'backdrop-blur-2xl', 'border-white/10');
+        } else {
+          navbar.classList.remove('bg-black/95', 'border-white/10');
+        }
+      });
+
+      // 4. Interactive Precision Before/After Sliders with Clip-Path
+      function initSliders() {
+        document.querySelectorAll('[data-slider]').forEach(container => {
+          let isDragging = false;
+
+          function updatePosition(clientX) {
+            const rect = container.getBoundingClientRect();
+            let x = clientX - rect.left;
+            x = Math.max(0, Math.min(x, rect.width));
+            const percentage = (x / rect.width) * 100;
+
+            container.style.setProperty('--slider-pos', percentage + '%');
+          }
+
+          container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            updatePosition(e.clientX);
+          });
+
+          window.addEventListener('mousemove', (e) => {
+            if (isDragging) updatePosition(e.clientX);
+          });
+
+          window.addEventListener('mouseup', () => {
+            isDragging = false;
+          });
+
+          container.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            if (e.touches[0]) updatePosition(e.touches[0].clientX);
+          }, { passive: true });
+
+          window.addEventListener('touchmove', (e) => {
+            if (isDragging && e.touches[0]) updatePosition(e.touches[0].clientX);
+          }, { passive: true });
+
+          window.addEventListener('touchend', () => {
+            isDragging = false;
+          });
+        });
+      }
+      
+      window.addEventListener('DOMContentLoaded', initSliders);
+      window.addEventListener('load', initSliders);
+
+      // 5. Case Study View Mode Switcher
+      function setCaseStudyView(csId, mode) {
+        const cs = document.getElementById(csId);
+        if (!cs) return;
+
+        // Hide all view containers
+        const containers = cs.querySelectorAll('.cs-view-container');
+        containers.forEach(c => c.classList.add('hidden'));
+
+        // Show target container
+        const target = document.getElementById(`${csId}-view-${mode}`);
+        if (target) target.classList.remove('hidden');
+
+        // Update button active state
+        const btns = cs.querySelectorAll('.cs-btn');
+        btns.forEach(b => b.classList.remove('view-btn-active'));
+
+        const activeBtn = document.getElementById(`${csId}-btn-${mode}`);
+        if (activeBtn) activeBtn.classList.add('view-btn-active');
+
+        // Trigger slider recalculation if slider mode
+        if (mode === 'slider') {
+          setTimeout(initSliders, 50);
+        }
+      }
+
+      // 6. Lightbox Modal Functions
+      function openLightbox(src, title) {
+        const modal = document.getElementById('lightbox-modal');
+        const img = document.getElementById('lightbox-img');
+        const titleEl = document.getElementById('lightbox-title');
+        
+        img.src = src;
+        titleEl.textContent = title || 'Telegram Project Screenshot';
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+          modal.classList.remove('opacity-0');
+        }, 10);
+      }
+
+      function closeLightbox() {
+        const modal = document.getElementById('lightbox-modal');
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300);
+      }
+
+      // Escape key to close modal
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    </script>
+  </body>
+</html>

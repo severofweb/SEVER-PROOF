@@ -1,0 +1,6 @@
+{
+  "name": "SEVER — Web3 Portfolio",
+  "description": "Official Web3 community, content, and growth portfolio for SEVER.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
